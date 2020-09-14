@@ -2125,8 +2125,10 @@ Local<Value> getInfoValue( SQLUSMALLINT fInfoType, SQLPOINTER info )
         case SQL_DATA_SOURCE_NAME          :
         case SQL_DRIVER_NAME               :
         case SQL_DRIVER_VER                :
+#ifndef __MVS__
         case SQL_DRIVER_BLDLEVEL           :
         case SQL_DB2_DRIVER_VER            :
+#endif
         case SQL_ODBC_VER                  :
         case SQL_ROW_UPDATES               :
         case SQL_SERVER_NAME               :
@@ -2135,7 +2137,9 @@ Local<Value> getInfoValue( SQLUSMALLINT fInfoType, SQLPOINTER info )
         case SQL_DBMS_NAME                 :
         case SQL_XOPEN_CLI_YEAR            :
         case SQL_DBMS_VER                  :
+#ifndef __MVS__
         case SQL_DBMS_FUNCTIONLVL          :
+#endif
         case SQL_ACCESSIBLE_TABLES         :
         case SQL_ACCESSIBLE_PROCEDURES     :
         case SQL_DATA_SOURCE_READ_ONLY     :
@@ -2180,7 +2184,9 @@ Local<Value> getInfoValue( SQLUSMALLINT fInfoType, SQLPOINTER info )
         case SQL_MAX_COLUMN_NAME_LEN       :
         case SQL_MAX_CURSOR_NAME_LEN       :
         case SQL_MAX_SCHEMA_NAME_LEN       :
+#ifndef __MVS__
         case SQL_MAX_MODULE_NAME_LEN       :
+#endif
         case SQL_MAX_PROCEDURE_NAME_LEN    :
         case SQL_MAX_TABLE_NAME_LEN        :
         case SQL_TXN_CAPABLE               :
@@ -2222,18 +2228,20 @@ Local<Value> getInfoValue( SQLUSMALLINT fInfoType, SQLPOINTER info )
         case SQL_PARAM_ARRAY_ROW_COUNTS    :
         case SQL_PARAM_ARRAY_SELECTS       :
         case SQL_DTC_TRANSITION_COST       :
+#ifndef __MVS__
         case SQL_DATABASE_CODEPAGE         :
         case SQL_APPLICATION_CODEPAGE      :
         case SQL_CONNECT_CODEPAGE          :
         case SQL_DB2_DRIVER_TYPE           :
+#endif
             result = Nan::New<Number>(*((SQLINTEGER *) info));
             break;
-
+#ifndef __MVS__
         case SQL_INPUT_CHAR_CONVFACTOR     :
         case SQL_OUTPUT_CHAR_CONVFACTOR    :
             result = Nan::New<Number>(*((SQLFLOAT *) info));
             break;
-
+#endif
         // 32 bit binary Mask
         case SQL_CATALOG_USAGE             :
         case SQL_FETCH_DIRECTION           :
@@ -2278,9 +2286,13 @@ Local<Value> getInfoValue( SQLUSMALLINT fInfoType, SQLPOINTER info )
         case SQL_STATIC_SENSITIVITY        :
         case SQL_ALTER_TABLE               :
         case SQL_ALTER_DOMAIN              :
+#ifndef __MVS__
         case SQL_IBM_ALTERTABLEVARCHAR     :
+#endif
         case SQL_SCHEMA_USAGE              :
+#ifndef __MVS__
         case SQL_MODULE_USAGE              :
+#endif
         case SQL_SUBQUERIES                :
         case SQL_TIMEDATE_ADD_INTERVALS    :
         case SQL_TIMEDATE_DIFF_INTERVALS   :
@@ -2292,7 +2304,9 @@ Local<Value> getInfoValue( SQLUSMALLINT fInfoType, SQLPOINTER info )
         case SQL_CREATE_COLLATION          :
         case SQL_CREATE_DOMAIN             :
         case SQL_CREATE_SCHEMA             :
+#ifndef __MVS__
         case SQL_CREATE_MODULE             :
+#endif
         case SQL_CREATE_TABLE              :
         case SQL_CREATE_TRANSLATION        :
         case SQL_CREATE_VIEW               :
@@ -2301,7 +2315,9 @@ Local<Value> getInfoValue( SQLUSMALLINT fInfoType, SQLPOINTER info )
         case SQL_DROP_COLLATION            :
         case SQL_DROP_DOMAIN               :
         case SQL_DROP_SCHEMA               :
+#ifndef __MVS__
         case SQL_DROP_MODULE               :
+#endif
         case SQL_DROP_TABLE                :
         case SQL_DROP_TRANSLATION          :
         case SQL_DROP_VIEW                 :
