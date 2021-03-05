@@ -14,7 +14,7 @@ ibmdb.open(cn, {"fetchMode": 3}, function(err, conn) { // 3 means FETCH_ARRARY
     conn.querySync("drop table mytab1");
   } catch (e) {}
   if (platform == 'os390') {
-    conn.querySync("create table mytab1 (c1 int, c2 varchar(10)), c3 blob(100) ccsid UNICODE");
+    conn.querySync("create table mytab1 (c1 int, c2 varchar(10), c3 blob(100)) ccsid UNICODE");
   } else {
     conn.querySync("create table mytab1 (c1 int, c2 varchar(10), c3 blob(100))");
   }

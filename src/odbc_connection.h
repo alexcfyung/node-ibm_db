@@ -33,6 +33,62 @@
   #define SQL_DBMS_FUNCTIONLVL 203
 #endif
 
+#ifndef SQL_DRIVER_BLDLEVEL 
+  #define SQL_DRIVER_BLDLEVEL 2604
+#endif
+
+#ifndef SQL_DB2_DRIVER_VER
+  #define SQL_DB2_DRIVER_VER 2550
+#endif
+
+#ifndef SQL_MAX_MODULE_NAME_LEN
+  #define SQL_MAX_MODULE_NAME_LEN 2603
+#endif
+
+#ifndef SQL_DATABASE_CODEPAGE
+  #define SQL_DATABASE_CODEPAGE 2519
+#endif
+
+#ifndef SQL_APPLICATION_CODEPAGE
+  #define SQL_APPLICATION_CODEPAGE 2520
+#endif
+
+#ifndef SQL_CONNECT_CODEPAGE
+  #define SQL_CONNECT_CODEPAGE 2521
+#endif
+
+#ifndef SQL_DB2_DRIVER_TYPE
+  #define SQL_DB2_DRIVER_TYPE 2567
+#endif
+
+#ifndef SQL_INPUT_CHAR_CONVFACTOR 
+  #define SQL_INPUT_CHAR_CONVFACTOR 2581
+#endif
+
+#ifndef SQL_OUTPUT_CHAR_CONVFACTOR 
+  #define SQL_OUTPUT_CHAR_CONVFACTOR 2582
+#endif
+
+#ifndef SQL_IBM_ALTERTABLEVARCHAR 
+  #define SQL_IBM_ALTERTABLEVARCHAR 1000
+#endif
+
+#ifndef SQL_MODULE_USAGE 
+  #define SQL_MODULE_USAGE 2601
+#endif
+
+#ifndef SQL_CREATE_MODULE 
+  #define SQL_CREATE_MODULE 2602
+#endif
+
+#ifndef SQL_DROP_MODULE 
+  #define SQL_DROP_MODULE 2600
+#endif
+
+#ifdef __MVS__
+typedef SDOUBLE SQLFLOAT;
+#endif
+
 class ODBCConnection : public Nan::ObjectWrap {
   public:
    static Nan::Persistent<String> OPTION_SQL;
